@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"feature\/api[1:6]","start":1709190252028,"end":1709190254084,"title":"feature\/api[1:6] 12:34:12.028-12:34:14.084 get ping health checkup"},{"id":2,"group":1,"content":"feature\/getApi[1:7]","start":1709190254832,"end":1709190255880,"title":"feature\/getApi[1:7] 12:34:14.832-12:34:15.880 post new bookings"},{"id":3,"group":1,"content":"feature\/getApi[2:31]","start":1709190255890,"end":1709190259241,"title":"feature\/getApi[2:31] 12:34:15.890-12:34:19.241 get all bookings"},{"id":4,"group":1,"content":"feature\/getApi[3:37]","start":1709190259250,"end":1709190260199,"title":"feature\/getApi[3:37] 12:34:19.250-12:34:20.199 put old bookings"},{"id":5,"group":1,"content":"feature\/getApi[4:61]","start":1709190260212,"end":1709190261101,"title":"feature\/getApi[4:61] 12:34:20.212-12:34:21.101 get bookings ID 1"},{"id":6,"group":1,"content":"feature\/getApi[5:67]","start":1709190261120,"end":1709190262042,"title":"feature\/getApi[5:67] 12:34:21.120-12:34:22.042 Update booking details"},{"id":7,"group":1,"content":"feature\/getApi[6:82]","start":1709190262053,"end":1709190262965,"title":"feature\/getApi[6:82] 12:34:22.053-12:34:22.965 delete bookings ID 1"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
